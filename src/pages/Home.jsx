@@ -31,14 +31,12 @@ function Home() {
     // }
     return (
         <div className='w-full pt-0 pb-8'>
-            {!loginStatus? (<div className="flex flex-wrap border-b border-black">
-                    <div className="w-full ">
-                        <Hero />
-                    </div>
+            {!loginStatus? (<div className="w-full flex flex-wrap border-b border-black bg-[#ffc017]">
+                   <Hero />
                 </div>):null
             }
             <Container>
-                <div className='flex flex-wrap'>
+                <div className='flex mt-3 flex-wrap'>
                     {posts.map((post) => (
                         <div key={post.$id} className='p-2 w-1/4'>
                             <PostCard {...post} />

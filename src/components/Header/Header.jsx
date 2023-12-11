@@ -49,7 +49,7 @@ function Header() {
   ]
   return (
     <>
-      <header className = {`shadow ${authStatus? "bg-white" : "bg-[#ffc017]"} border-b border-black fixed w-full`}>
+      <header className = {`shadow ${authStatus? "bg-white" : "bg-[#ffc017]"} border-b border-black fixed w-full z-10`}>
         <div className='py-[20px]'>
           <Container >
             <nav className="flex align-middle items-center">
@@ -63,7 +63,7 @@ function Header() {
                   item.active ? (
                     <li key={item.name}>
                       <button 
-                      className = {`text-[13px] font-semibold inline-block mx-3 ${item.name === 'Get started'? " px-4 py-2 rounded-full  text-white bg-[#191919] hover:bg-black duration-100": ''}`}
+                      className = {`tracking-tight text-[13px] font-semibold inline-block mx-3 ${item.name === 'Get started'? " px-4 py-2 rounded-full  text-white bg-[#191919] hover:bg-black duration-100": ''}`}
                       onClick={()=> navigate(item.path)}>
                         {item.name}
                       </button>

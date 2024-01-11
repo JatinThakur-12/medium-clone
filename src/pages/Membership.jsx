@@ -7,7 +7,7 @@ function Membership() {
             <div className='md:h-[650px] w-4/6'>
                 <div className='flex flex-col w-full h-full lg:pt-16 lg:pr-20 lg:pb-12 lg:pl-8'>
                    <div className='lg:w-full'>
-                    Hello
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem eveniet numquam ullam distinctio ipsam corrupti.
                    </div>
                    <div className=''>ln</div>
                 </div>
@@ -15,7 +15,7 @@ function Membership() {
 
             <div className='h-[650px] w-2/6'>
                 <div className='w-full h-full md:border-l border-black'>
-                    nhi hona tha 
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque sequi in cupiditate est blanditiis natus.
                 </div>
             </div>
         </div>

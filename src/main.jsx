@@ -12,10 +12,11 @@ import { Protected as AuthLayout, Login } from './components/index.js'
 import AddPost from "./pages/AddPost";
 import SignUp from "./pages/SignUp";
 import EditPost from "./pages/EditPost";
-
+import About from './pages/About.jsx'
 import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPosts";
+import Membership from './pages/Membership.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home />,
+        },
+        {
+            path:"/about",
+            element:<About/>,
+        },
+        {
+            path:"/membership",
+            element:<Membership/>,
         },
         {
             path: "/login",
@@ -74,7 +83,7 @@ const router = createBrowserRouter([
             element: <Post />,
         },
     ],
-},
+    },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,7 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Montserrat&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     letter-spacing: normal;
+}
+section::-webkit-scrollbar {
+    width: 0; /* Set the width of the scrollbar */
+}
+
+section::-webkit-scrollbar-thumb {
+    background-color: #333; /* Color of the scrollbar thumb */
+}
+
+.fss{
+    font-family: 'Cormorant Garamond', serif, 'Times New Roman', Times, serif;
 }

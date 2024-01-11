@@ -13,6 +13,8 @@ import Signup from "./Signup";
 import PostForm from "./postForm/PostForm";
 import Protected from "./AuthLayout";
 import Hero from "./Hero/Hero";
+import Trending from "./Trending/Trending";
+import TrendingCard from "./Cards/TrendingCard";
 
 export {
     Header,
@@ -29,5 +31,7 @@ export {
     Signup,
     PostForm,
     Protected,
-    Hero
+    Hero,
+    Trending,
+    TrendingCard
 }

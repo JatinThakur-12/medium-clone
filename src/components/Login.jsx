@@ -17,7 +17,6 @@ function Login() {
         try {
             const session = await authService.login(data);
             if(session){
-                console.log("inside if(session)");
                 const userData = await authService.getCurrentUser();
                 if(userData) dispatch(authLogin(userData));
                 navigate('/')
@@ -28,7 +27,7 @@ function Login() {
     }
   return (
     <div
-    className='flex items-center justify-center w-full'
+    className='flex top-0 bottom-0 items-center justify-center w-full h-full z-20 fixed bg-[rgba(255,255,255,0.95)] overflow-y-auto overflow-x-hidden'
     >
         <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">

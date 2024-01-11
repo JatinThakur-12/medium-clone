@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Container({children}) {
+function Container({children,props='py-5'}) {
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className='flex justify-center'>
+      <div className={`mx-8 sm:mx-16 ${props} max-w-6xl w-full`}>
         {children}
+      </div>
     </div>
   )
 }

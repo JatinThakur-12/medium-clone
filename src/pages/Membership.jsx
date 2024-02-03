@@ -1,4 +1,6 @@
 import React from 'react'
+import { Logo } from '../components'
+import { Link } from 'react-router-dom'
 
 function Membership() {
   return (
@@ -101,6 +103,21 @@ function Membership() {
                 
             </div>
         </div>
+        <div className='bg-white p-6 flex flex-wrap justify-center xs:justify-between'>
+        <span>
+          <Link to='/'>
+            <Logo props='w-[9rem] xs:w-[10rem]' fill='black' />
+          </Link>
+        </span>
+        <div className='flex text-[10px] py-2 gap-2 items-center'>
+          <Link to='#'><span className=''><u className=''>About</u></span></Link>
+          <Link to='/'><span className=''><u className=''>Terms</u></span></Link>
+          <Link to='/'><span className=''><u className=''>Privacy</u></span></Link>
+          <Link to='/'><span className=''><u className=''>Help</u></span></Link>
+          <Link to='/'><span className=''><u className=''>Teams</u></span></Link>
+          <Link to='/'><span className=''><u className=''>Press</u></span></Link>
+        </div>
+      </div>
     </>
   )
 }

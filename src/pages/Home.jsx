@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import appwriteService from "../appwriteServices/data";
-import {Container, PostCard, Hero, Trending} from '../components'
+import {Container, PostCard, Hero, Trending, PostCardSkeleton} from '../components'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { skeletonClasses } from '@mui/material';
 
 
 
@@ -10,13 +11,18 @@ function Home() {
     const [posts, setPosts] = useState([])
     const [trendingPosts, setTrendingPosts] = useState([])
     const loginStatus = useSelector(state => state.status);
+    const [loading, setLoading] = useState(true);
 
-
+    
+    
     useEffect(() => {
+        setLoading(true);
         appwriteService.getPosts().then((posts) => {
             if (posts) {
-                setPosts(posts.documents)
-                console.log(posts.documents)
+                setPosts(posts.documents);
+                console.log(posts.documents);
+                //TODO: Make setloading false
+                setLoading(true);
             }
         })
     }, [loginStatus])
@@ -46,13 +52,19 @@ function Home() {
                 ):null
             }
             <Container>
-                <div className="lg:grid h-dvh lg:grid-cols-12 lg:grid-rows-1">
+                <div className="lg:grid lg:grid-cols-12 lg:grid-rows-1">
                     <section className="col-start-1 row-start-1 col-span-7 block overflow-visible lg:overflow-y-scroll pt-2">
                         {posts.map((post) => (
                             <div key={post.$id} className='mb-4'>
                                 <PostCard {...post} />
                             </div>
                         ))}
+                        {loading && (
+                            <>
+                                <PostCardSkeleton/>
+                                <PostCardSkeleton/>
+                            </>
+                        )}
                     </section>
                     <aside className=" row-start-1 col-start-9 col-span-4">
                         <div className="max-w-96 bg-white ">
@@ -118,7 +130,7 @@ function Home() {
                             <Link to=''><span>Blog</span></Link>
                             <Link to=''><span>Privacy</span></Link>
                             <Link to=''><span>Terms</span></Link>
-                            <Link to=''><span>Text to</span></Link>
+                            <Link to=''><span>Text to Speech</span></Link>
                             <Link to=''><span>Teams</span></Link>
                         </div>
                         </div>

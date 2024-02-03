@@ -26,9 +26,15 @@ function About() {
               <div className='text-xl tracking-tight mb-6'>
                 Over 100 million people connect and share their wisdom on Medium every month. Many are professional writers, but just as many aren’t — they’re CEOs, computer scientists, U.S. presidents, amateur novelists, and anyone burning with a story they need to get out into the world. They write about what they’re working on, what’s keeping them up at night, what they’ve lived through, and what they’ve learned that the rest of us might want to know too.
               </div>
-              <div className='text-xl tracking-tight '>
+              <div className='text-xl tracking-tight mb-10'>
                 Instead of selling ads or selling your data, we’re supported by a growing community of <u>Medium members</u> who align with our mission. If you’re new here, <u>start exploring</u>. Dive deeper into whatever matters to you. Find a post that helps you learn something new, or reconsider something familiar—and then <u>share your own story</u>.
               </div>
+              <div className='text-3xl tracking-tight  mb-10 md:w-[390px]'>
+                <span className='pr-1 bg-[#505050] leading-snug'>
+                  Designed by <i><u>Medium</u></i> & developed by <i><u>Jatin Thakur</u> </i>.😊
+                </span>
+              </div>
+
             </div>
           </div>
         </section>

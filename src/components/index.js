@@ -15,6 +15,8 @@ import Protected from "./AuthLayout";
 import Hero from "./Hero/Hero";
 import Trending from "./Trending/Trending";
 import TrendingCard from "./Cards/TrendingCard";
+import WriteSvg from "./Header/WriteSvg";
+import PostCardSkeleton from "./PostCardSkeleton";
 
 export {
     Header,
@@ -33,5 +35,7 @@ export {
     Protected,
     Hero,
     Trending,
-    TrendingCard
+    TrendingCard,
+    WriteSvg,
+    PostCardSkeleton
 }

@@ -9,7 +9,7 @@ function Hero() {
     <>
     <div className="hidden md:block">
         <div className='svg w-[560px] text-black right-0 absolute'>
-            <MmAnimation />
+            {/* <MmAnimation /> */}
         </div>
     </div>
     <Container props={'py-0'}>

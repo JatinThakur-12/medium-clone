@@ -36,9 +36,9 @@ function PostCard({$id, featuredImage, title}) {
               </div>
             </div>
           </div>
-        <div className="w-52">
-          <div className=" overflow-hidden  w-52 h-36">
-            <img  className="w-28 h-28 sm:h-36 sm:w-52 object-cover"src={dbService.getFilePreview(featuredImage)} alt="" />
+        <div className=" sm:w-52">
+          <div className=" overflow-hidden  w-36 h-full sm:w-52">
+            <img  className="w-36 h-28 sm:h-36 sm:w-52 object-cover"src={dbService.getFilePreview(featuredImage)} alt="" />
           </div>
         </div>
         </div>

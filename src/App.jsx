@@ -25,8 +25,6 @@ function App() {
     .finally(()=>{
       setLoading(false);
     })
-
-
   }, [])
   
   return !loading ? (
@@ -39,7 +37,7 @@ function App() {
         {/* <Footer /> */}
       </div>
     </div>
-  ) : null; 
+  ) : ""; 
 }
 
 export default App

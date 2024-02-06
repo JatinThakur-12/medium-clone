@@ -46,7 +46,6 @@ export default function Post() {
                         className="rounded-xl"
                         
                     />
-
                     {isAuthor && (
                         <div className="absolute right-4 top-2">
                             <Link to={`/edit-post/${post.$id}`}>

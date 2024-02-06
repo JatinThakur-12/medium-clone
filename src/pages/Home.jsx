@@ -4,6 +4,8 @@ import {Container, PostCard, Hero, Trending, PostCardSkeleton} from '../componen
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { skeletonClasses } from '@mui/material';
+import axios from "axios"
+import config from '../configEnv/config';
 
 
 
@@ -13,6 +15,26 @@ function Home() {
     const loginStatus = useSelector(state => state.status);
     const [loading, setLoading] = useState(true);
 
+    // const [userName, setUserName] = useState("")
+    // //TODO: fetchuser name
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             let response = await axios.get(`${config.appwriteUrl}/users/65701f66db2cabed3c21`, {
+    //                 headers: {
+    //                     "X-Appwrite-Project": config.appwriteProjectId,
+    //                     "X-Appwrite-Key": "a2fbfb0db584e4a8a3579d1f32b3d62482fd369da54e5e5bd74951e7c4cfbaa718033e14f42908d60314ca729a6e61f47e25878097360f672af8eaa38d5bbc017b251ff03ed6f70213ae2e8ab3e7b114b7286078d5f5dc01bc873ac776eda662add3c86cf8627b71d45677fcb01458a309ad1377fa02bcf5da963078d834a625"
+    //                 }
+    //             });
+    //             setUserName(response.data.name);
+    //         } catch (error) {
+    //             console.error("Error fetching user data:", error);
+    //         }
+    //     };
+    
+    //     fetchData();
+    //     console.log("axios:",userName);
+    // }, []);
     
     
     useEffect(() => {

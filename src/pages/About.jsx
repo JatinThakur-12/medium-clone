@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Logo } from '../components'
+import { Logo,Footer} from '../components'
 
 function About() {
   return (
@@ -19,7 +19,7 @@ function About() {
                 We believe that what you read and write matters. Words can divide or empower us, inspire or discourage us. In a world where the most sensational and surface-level stories often win, we’re building a system that rewards depth, nuance, and time well spent. A space for thoughtful conversation more than drive-by takes, and substance over packaging.
               </div>
               <div className='text-3xl tracking-tight mb-10'>
-                <span className='pr-1 bg-[#505050]'>
+                <span className='pr-1 bg-[#505050] leading-snug border-2 rounded-sm border-[#505050]'>
                   Ultimately, our goal is to deepen our collective understanding of the world through the power of writing.
                 </span>
               </div>
@@ -34,7 +34,9 @@ function About() {
                   Designed by <i><u>Medium</u></i> & developed by <i><u>Jatin Thakur</u> </i>.😊
                 </span>
               </div>
-
+              <div className='text-xl tracking-tight mb-10'>
+                This website is a project developed solely for showcasing my skills in React and web development. It is not affiliated with or endorsed by Medium in any way. The content presented here, including articles, images, and any other media, is for demonstration purposes only and should not be considered as representing the actual Medium platform. All trademarks and copyrights belong to their respective owners. --{">"} <a href='https://medium.com/' target='_blank'><u><b>Visit Medium</b></u></a>
+              </div>
             </div>
           </div>
         </section>
@@ -63,21 +65,7 @@ function About() {
           </Link>
         </div>
       </div>
-      <div className='bg-white p-6 flex flex-wrap justify-center xs:justify-between'>
-        <span>
-          <Link to='/'>
-            <Logo props='w-[9rem] xs:w-[10rem]' fill='black' />
-          </Link>
-        </span>
-        <div className='flex text-[10px] py-2 gap-2 items-center'>
-          <Link to='#'><span className=''><u className=''>About</u></span></Link>
-          <Link to='/'><span className=''><u className=''>Terms</u></span></Link>
-          <Link to='/'><span className=''><u className=''>Privacy</u></span></Link>
-          <Link to='/'><span className=''><u className=''>Help</u></span></Link>
-          <Link to='/'><span className=''><u className=''>Teams</u></span></Link>
-          <Link to='/'><span className=''><u className=''>Press</u></span></Link>
-        </div>
-      </div>
+      <Footer/>
     </>
   )
 }

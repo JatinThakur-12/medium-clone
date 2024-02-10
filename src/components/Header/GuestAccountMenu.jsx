@@ -30,7 +30,7 @@ export default function GuestAccountMenu() {
   const open = Boolean(anchorEl);
   const authStatus = useSelector((state) => state.status);
   const userData = useSelector((state) => state.userData);
-
+  const [userMaskedEmail,setUserMaskedEmail] = React.useState(userData?.email ? maskEmail(userData.email) : '')
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
@@ -41,14 +41,18 @@ export default function GuestAccountMenu() {
       })
   }
 
-
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const maskedEmail = () => {
+    let maskedEmail = maskEmail(userData?.email);
+    setUserMaskedEmail(maskedEmail);
+    console.log("Masked Email",maskedEmail);
+  }
 
 
   useEffect(() => {
@@ -64,6 +68,12 @@ export default function GuestAccountMenu() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(()=>{
+    if(authStatus){
+      maskedEmail()
+    }
+  }, [userData])
 
   function maskEmail(email) {
     // Check if the email is valid
@@ -102,7 +112,8 @@ export default function GuestAccountMenu() {
           <Avatar sx={{ width: 30, height: 30 }}>
             {
               authStatus ?
-                userData?.name?.charAt(0) : <img src="/user.png" className='h-8 w-8 rounded-full block' alt="" />
+                userData?.name?.charAt(0).toUpperCase() : 
+                <img src="/user.png" className='h-8 w-8 rounded-full block' alt="" />
             }
           </Avatar>
         </IconButton>
@@ -239,7 +250,7 @@ export default function GuestAccountMenu() {
         {authStatus && (
           <div className="px-6 py-2 cursor-pointer" onClick={logoutHandler}>
             <div className="text-[14px] font-medium leading-tight mb-2 hover:text-black tracking-tight"   >Sign out</div>
-            <div className="text-xs font-medium leading-tight ">{maskEmail(userData?.email)}</div>
+            <div className="text-xs font-medium leading-tight ">{userMaskedEmail}</div>
           </div>
         )}
       </Menu>

@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import appwriteService from "../appwriteServices/data";
-import {Container, PostCard, Hero, Trending, PostCardSkeleton} from '../components'
+import { Container, PostCard, Hero, Trending, PostCardSkeleton } from '../components'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { skeletonClasses } from '@mui/material';
 import axios from "axios"
 import config from '../configEnv/config';
+import { LibraryAddCheckTwoTone } from '@mui/icons-material';
 
 
 
@@ -15,28 +16,6 @@ function Home() {
     const loginStatus = useSelector(state => state.status);
     const [loading, setLoading] = useState(true);
 
-    // const [userName, setUserName] = useState("")
-    // //TODO: fetchuser name
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             let response = await axios.get(`${config.appwriteUrl}/users/65701f66db2cabed3c21`, {
-    //                 headers: {
-    //                     "X-Appwrite-Project": config.appwriteProjectId,
-    //                     "X-Appwrite-Key": "a2fbfb0db584e4a8a3579d1f32b3d62482fd369da54e5e5bd74951e7c4cfbaa718033e14f42908d60314ca729a6e61f47e25878097360f672af8eaa38d5bbc017b251ff03ed6f70213ae2e8ab3e7b114b7286078d5f5dc01bc873ac776eda662add3c86cf8627b71d45677fcb01458a309ad1377fa02bcf5da963078d834a625"
-    //                 }
-    //             });
-    //             setUserName(response.data.name);
-    //         } catch (error) {
-    //             console.error("Error fetching user data:", error);
-    //         }
-    //     };
-    
-    //     fetchData();
-    //     console.log("axios:",userName);
-    // }, []);
-    
-    
     useEffect(() => {
         setLoading(true);
         appwriteService.getPosts().then((posts) => {
@@ -44,11 +23,11 @@ function Home() {
                 setPosts(posts.documents);
                 console.log(posts.documents);
                 //TODO: Make setloading false
-                setLoading(true);
+                setLoading(false);
             }
         })
     }, [loginStatus])
-  
+
     // if (posts.length === 0) {
     //     return (
     //         <div className="w-full">
@@ -62,16 +41,16 @@ function Home() {
     // }
     return (
         <div className='w-full pt-0 pb-8'>
-            {!loginStatus? (
-                    <>
-                        <div className="w-full border-b border-black bg-[#ffc017]">
-                            <Hero/>
-                        </div>
-                        <div className='w-full border-b'>
-                            <Trending posts={trendingPosts}/>
-                        </div>
-                    </>
-                ):null
+            {!loginStatus ? (
+                <>
+                    <div className="w-full border-b border-black bg-[#ffc017]">
+                        <Hero />
+                    </div>
+                    <div className='w-full border-b'>
+                        <Trending posts={trendingPosts} />
+                    </div>
+                </>
+            ) : null
             }
             <Container>
                 <div className="lg:grid lg:grid-cols-12 lg:grid-rows-1">
@@ -83,78 +62,81 @@ function Home() {
                         ))}
                         {loading && (
                             <>
-                                <PostCardSkeleton/>
-                                <PostCardSkeleton/>
+                                <PostCardSkeleton />
+                                <PostCardSkeleton />
                             </>
                         )}
                     </section>
-                    <aside className=" row-start-1 col-start-9 col-span-4">
-                        <div className="max-w-96 bg-white ">
-                        <div className="flex-col ">
-                            <div className="font-medium">Discover more of what matters to you</div>
-                            <div>
-                            <div className="flex flex-wrap gap-x-3 gap-y-6 py-4 text-sm font-medium lead ">
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Programming</span>
+                    <aside className=" row-start-1 col-start-9 col-span-4 ">
+                        <div className="max-w-96 bg-white sticky top-24">
+                            <div className="flex-col ">
+                                <div className="font-medium">Discover more of what matters to you</div>
+                                <div>
+                                    <div className="flex flex-wrap gap-x-3 gap-y-6 py-4 text-sm font-medium lead ">
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Programming</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Data Science</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Technology</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Self Improvement</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Writing</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Relationship</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Machine Learning</span>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div className="">
+                                                <span className="bg-slate-100 px-3 py-2 items-center rounded-full">React js</span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Data Science</span>
+                                <div className="text-sm my-4 text-green-600 font-medium">
+                                    <a href="">
+                                        See more topics
+                                    </a>
                                 </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Technology</span>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Self Improvement</span>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Writing</span>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Relationship</span>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">Machine Learning</span>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div className="">
-                                    <span className="bg-slate-100 px-3 py-2 items-center rounded-full">React js</span>
-                                </div>
-                                </a>
                             </div>
+                            <div
+                                className="border-t-2 mt-6 pt-5 flex flex-wrap tracking-tight text-[14px] font-[500] justify-start gap-x-6 text-gray-600 "
+                            >
+                                <Link to='https://github.com/JatinThakur-12/medium-clone' target='_blank'><span>GitHub</span></Link>
+                                <Link to='https://www.linkedin.com/in/thakurjatinx/' target='_blank'><span>LinkedIn</span></Link>
+                                <Link to='/about'><span>About</span></Link>
+                                <Link to='/membership'><span>Membership</span></Link>
+                                {/* <Link to=''><span>Help</span></Link>
+                                <Link to=''><span>Status</span></Link>
+                                <Link to=''><span>Careers</span></Link>
+                                <Link to=''><span>Blog</span></Link>
+                                <Link to=''><span>Privacy</span></Link>
+                                <Link to=''><span>Terms</span></Link>
+                                <Link to=''><span>Text to Speech</span></Link>
+                                <Link to=''><span>Teams</span></Link> */}
                             </div>
-                            <div className="text-sm my-4 text-green-600 font-medium">
-                            <a href="">
-                                See more topics
-                            </a>
-                            </div>
-                        </div>
-                        <div 
-                        className="border-t-2 mt-6 pt-5 flex flex-wrap tracking-tight text-[14px] font-[500] justify-start gap-x-6 text-gray-600 "
-                        >
-                            <Link to=''><span>Help</span></Link>
-                            <Link to=''><span>Status</span></Link>
-                            <Link to='/about'><span>About</span></Link>
-                            <Link to=''><span>Careers</span></Link>
-                            <Link to=''><span>Blog</span></Link>
-                            <Link to=''><span>Privacy</span></Link>
-                            <Link to=''><span>Terms</span></Link>
-                            <Link to=''><span>Text to Speech</span></Link>
-                            <Link to=''><span>Teams</span></Link>
-                        </div>
                         </div>
                     </aside>
                 </div>

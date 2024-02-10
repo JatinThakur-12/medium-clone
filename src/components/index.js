@@ -17,6 +17,10 @@ import Trending from "./Trending/Trending";
 import TrendingCard from "./Cards/TrendingCard";
 import WriteSvg from "./Header/WriteSvg";
 import PostCardSkeleton from "./PostCardSkeleton";
+import UserTestimonial from "./UserTestimonials/UserTestimonial";
+import MembershipBenefits from "./MembershipBenefits/MembershipBenefits";
+import MembershipSection from "./MembershipSection/MembershipSection";
+import MembershipHero from "./MembershipHero/MembershipHero";
 
 export {
     Header,
@@ -37,5 +41,10 @@ export {
     Trending,
     TrendingCard,
     WriteSvg,
-    PostCardSkeleton
+    PostCardSkeleton,
+    UserTestimonial,
+    MembershipBenefits,
+    MembershipSection,
+    MembershipHero,
+    
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
+import config from '../configEnv/config'
 
 export default function RichTxtEditor({ name, control, label, defaultValue = "" }) {
 
@@ -12,6 +13,7 @@ export default function RichTxtEditor({ name, control, label, defaultValue = "" 
                 control={control}
                 render={({ field: { onChange } }) => (
                     <Editor
+                        apiKey={config.tinyMceKey}
                         initialValue={defaultValue}
                         init={{
                             initialValue: defaultValue,

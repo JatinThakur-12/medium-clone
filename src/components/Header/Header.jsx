@@ -131,7 +131,7 @@ function Header() {
               <nav className="flex align-middle items-center justify-between">
                 <div className="">
                   <Link to='/'>
-                    <Logo props='w-[9rem] xs:w-[10rem]' fill={`${location.pathname == '/about' ? "white" : "black"}`} />
+                    <Logo props='w-[9rem] xs:w-[8rem]' fill={`${location.pathname == '/about' ? "white" : "black"}`} />
                   </Link>
                 </div>
                 {/* <ul className = "flex ml-auto gap-x-6 items-center">
@@ -154,9 +154,9 @@ function Header() {
                 ))}
               </ul> */}
                 {!authStatus &&
-                  <div className='flex tracking-tighter gap-x-2 xs:gap-x-3 text-sm font-medium'>
+                  <div className='flex tracking-tighter gap-x-2 xs:gap-x-3 text-xs font-medium'>
                     <Link to="/login"><div className={`flex justify-center ${location.pathname == '/about' ? "text-[#e9e9e9] border-[#e9e9e9]" : "border-black"}  px-3 py-1 xs:px-4 xs:py-2 rounded-full border cursor-pointer`}>Sign in</div></Link>
-                    <Link to="/signup"><div className={`flex justify-center ${location.pathname == '/about' ? " bg-slate-100 hover:bg-white " : "text-[#e9e9e9] border-[#e9e9e9] bg-[#191919] hover:bg-black duration-100"} px-3 py-1 xs:px-4 xs:py-2 text-sm rounded-full border cursor-pointer`}>Sign up</div></Link>
+                    <Link to="/signup"><div className={`flex justify-center ${location.pathname == '/about' ? " bg-slate-100 hover:bg-white " : "text-[#e9e9e9] border-[#e9e9e9] bg-[#191919] hover:bg-black duration-100"} px-3 py-1 xs:px-4 xs:py-2 text-xs rounded-full border cursor-pointer`}>Sign up</div></Link>
                   </div>
                 }
               </nav>
@@ -169,7 +169,7 @@ function Header() {
 
   else if (postPageRegex.test(location.pathname)) { // for "/post/(anything)" route
     return (
-      <header className={`shadow ${location.pathname == '/about' ? 'bg-[#242424] border-[rgba(255,255,255,0.5)]' : ''} ${location.pathname == '/membership' ? 'bg-white sticky top-0 border-black z-10' : ''} box-border border-b-[1.5px]   transition-all w-full `}>
+      <header className={`shadow box-border border-b-[1.5px] transition-all w-full `}>
         <div className='flex items-center px-6 py-3'>
           <div className=' w-full '>
             <nav className="flex align-middle items-center justify-between">
@@ -177,25 +177,30 @@ function Header() {
                 <Logo props='w-[9rem] xs:w-[9rem]' />
               </Link>
               <div className='hidden items-center sm:flex'>
-                <div className='group flex text-slate-500 items-center gap-1 pr-8 hover:text-black hover:stroke-black stroke-slate-400'>
-                  <WriteSvg />
-                  <div className='text-sm tracking-tighter items-center align-middle font-medium'>Write</div>
-                </div>
+                <Link to={authStatus ? "/add-post" : "/login"}>
+                  <div className='group flex text-slate-500 items-center gap-1 pr-8 hover:text-black hover:stroke-black stroke-slate-400'>
+                    <WriteSvg />
+                    <div className='text-sm tracking-tighter items-center align-middle font-medium'>Write</div>
+                  </div>
+                </Link>
                 {
-                  !authStatus && <div className='hidden md:flex tracking-tighter text-sm font-medium'>
+                  !authStatus && 
+                  <div className='hidden md:flex tracking-tighter text-sm font-medium'>
                     <Link to="/signup">
                       <div className={`flex justify-center text-white border-[#e9e9e9] bg-[#1A8917]  hover:bg-[#156D12] duration-100 font-medium px-3 py-[0.30rem] text-sm rounded-full border cursor-pointer tracking-tighter`}>
                         Sign up
                       </div>
                     </Link>
-                    <Link to="/login"><div className={`flex justify-center pl-3 py-[0.30rem] cursor-pointer`}>Sign in</div></Link>
+                    <Link to="/login">
+                      <div className={`flex justify-center pl-3 py-[0.30rem] cursor-pointer`}>Sign in</div>
+                    </Link>
                   </div>
                 }
               </div>
             </nav>
           </div>
           <div className='block md:ml-8'>
-            {!authStatus ? <GuestAccountMenu /> : <GuestAccountMenu />}
+            {<GuestAccountMenu />}
           </div>
         </div>
       </header>
@@ -203,7 +208,7 @@ function Header() {
   }
   return (
     <>
-      <header className={`shadow ${location.pathname == '/about' ? 'bg-[#242424] border-[rgba(255,255,255,0.5)]' : ''} ${location.pathname == '/membership' ? 'bg-white sticky top-0 border-black z-10' : ''} box-border border-b-[1.5px]   transition-all w-full `}>
+      <header className={`shadow box-border border-b-[1.5px]   transition-all w-full `}>
         <div className='flex items-center px-6 py-3'>
           <div className=' w-full '>
             <nav className="flex align-middle items-center justify-between">
@@ -211,10 +216,12 @@ function Header() {
                 <Logo props='w-[9rem] xs:w-[9rem]' />
               </Link>
               <div className='hidden items-center sm:flex'>
-                <div className='group flex text-slate-500 items-center gap-1 pr-8 hover:text-black hover:stroke-black stroke-slate-400'>
-                  <WriteSvg />
-                  <div className='text-sm tracking-tighter items-center align-middle font-medium'>Write</div>
-                </div>
+                <Link to={authStatus ? "/add-post" : "/login"}>
+                  <div className='group flex text-slate-500 items-center gap-1 pr-8 hover:text-black hover:stroke-black stroke-slate-400'>
+                    <WriteSvg />
+                    <div className='text-sm tracking-tighter items-center align-middle font-medium'>Write</div>
+                  </div>
+                </Link>
                 {
                   !authStatus && <div className='hidden md:flex tracking-tighter text-sm font-medium'>
                     <Link to="/signup"><div className={`flex justify-center text-[#e9e9e9] border-[#e9e9e9] bg-[#1A8917]  hover:bg-[#156D12] duration-100 px-3 py-1 text-sm rounded-full border cursor-pointer`}>Sign up</div></Link>
@@ -225,7 +232,7 @@ function Header() {
             </nav>
           </div>
           <div className='block md:ml-8'>
-            {!authStatus ? <GuestAccountMenu /> : <GuestAccountMenu />}
+            {<GuestAccountMenu />}
           </div>
         </div>
       </header>

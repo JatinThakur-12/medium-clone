@@ -81,7 +81,7 @@ export class DbService{
         }
     }
 
-    async getPosts(queries = [Query.equal("status", "active")]){
+    async getPosts(queries = [Query.equal("status", "active"),Query.orderDesc("$createdAt")]){
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId, 

@@ -51,7 +51,7 @@ export default function GuestAccountMenu() {
   const maskedEmail = () => {
     let maskedEmail = maskEmail(userData?.email);
     setUserMaskedEmail(maskedEmail);
-    console.log("Masked Email",maskedEmail);
+    // console.log("Masked Email",maskedEmail);
   }
 
 
